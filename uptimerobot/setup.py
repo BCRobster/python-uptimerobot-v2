@@ -10,8 +10,8 @@ setuptools.setup(
     author_email="author@example.com",
     description="python-uptimerobot-APIv2 implementation",
     long_description=long_description,
-    long_description_content_type="python-uptimerobot-APIv2 is an Uptime Robot http://uptimerobot.com integration for your Python project, implementing uptimerobot API v2 version.",
-    url="https://github.com/pypa/change",
+    long_description_content_type="text/markdown",
+    url="https://github.com/BCRobster/python-uptimerobot-APIv2",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
