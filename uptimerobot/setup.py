@@ -6,8 +6,8 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="uptimerobot.py",
     version="0.0.1",
-    author="Example Author",
-    author_email="author@example.com",
+    author="BCRobster",
+    author_email="bcrobster@gmail.com",
     description="python-uptimerobot-APIv2 implementation",
     long_description=long_description,
     long_description_content_type="text/markdown",
