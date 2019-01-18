@@ -1,0 +1,10 @@
+.vscode/launch.json
+.vscode/settings.json
+
+uptimerobot/working_code.py
+uptimerobot/test_code.py
+uptimerobot/spielen.py
+
+uptimerobot/__pycache__/__init__.cpython-37.pyc
+uptimerobot/__pycache__/uptimerobot.cpython-37.pyc
+__pycache__/uptimerobot.cpython-37.pyc
