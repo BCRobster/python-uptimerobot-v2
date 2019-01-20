@@ -1,7 +1,7 @@
 .vscode/launch.json
 .vscode/settings.json
 
-uptimerobot/working_code.py
+working_code.py
 uptimerobot/test_code.py
 uptimerobot/spielen.py
 uptimerobot/notes.py

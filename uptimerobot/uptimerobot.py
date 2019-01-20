@@ -82,17 +82,7 @@ class UptimeRobot:
 
 
     def newMonitor(self, monitorType: int, monitorUrl: str, monitorFriendlyName):
-        #add more usefull parameters: {
-            # interval
-            # http_username
-            # http_password
-            # alert_contacts
-            # mwindows
-            # handling correctness of values / python3 typing 
-                # -friendly name
-                # -monitor url
-                # -type
-        # }
+        
         url = self.baseUrl
         url += 'newMonitor'
         
