@@ -10,7 +10,7 @@ class UptimeRobot:
 
     def __init__(self, apiKey: str):
         self.apiKey = apiKey
-        self.baseUrl = "https://api.uptimerobot.com/v2/"
+        self._baseUrl = "https://api.uptimerobot.com/v2/"
 
 
     def requestApi(self, url, payload, headers):
@@ -25,7 +25,7 @@ class UptimeRobot:
 
     def getMonitors(self):
         
-        url = self.baseUrl
+        url = self._baseUrl
         url += 'getMonitors'
         
         payload  = 'api_key=' 
@@ -60,7 +60,7 @@ class UptimeRobot:
 
 
     def deleteMonitorById(self, monitorId):
-        url = self.baseUrl
+        url = self._baseUrl
         url += 'deleteMonitor'
         
         payload  = 'api_key=' 
@@ -83,7 +83,7 @@ class UptimeRobot:
 
     def newMonitor(self, monitorType: int, monitorUrl: str, monitorFriendlyName):
         
-        url = self.baseUrl
+        url = self._baseUrl
         url += 'newMonitor'
         
         payload  = 'api_key=' 
