@@ -94,7 +94,7 @@ class UptimeRobot:
             # 2 - Keyword 
             # 3 - Ping
             # 4 - Port
-        payload += '&url=http%3A%2F%2F'
+        payload += '&url=http://'
         payload += monitorUrl # url: my-url.domain
         payload += '&friendly_name='
         payload += monitorFriendlyName
