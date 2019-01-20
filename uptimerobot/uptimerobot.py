@@ -1,8 +1,10 @@
 # python3 modul for uptimerobot API v2
-import requests
+
 import json
-import sys
 import os
+import requests
+import sys
+
 
 # tasks to do:
     # - add typing to all variabels
