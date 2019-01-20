@@ -6,16 +6,9 @@ import requests
 import sys
 
 
-# tasks to do:
-    # - add typing to all variabels
-    # - add more usefull variabels in the newMonitor Function
-    # - in getMonitorIdByFriendlyName deriving responce ok?
-    # - in getMonitorIdByFriendlyName deriving responce ok?
-
-
 class UptimeRobot:
 
-    def __init__(self, apiKey):
+    def __init__(self, apiKey: str):
         self.apiKey = apiKey
         self.baseUrl = "https://api.uptimerobot.com/v2/"
 
