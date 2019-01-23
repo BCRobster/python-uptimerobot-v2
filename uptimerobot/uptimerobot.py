@@ -28,9 +28,9 @@ class UptimeRobot:
     
 
     def getMonitorIdByFriendlyName(self, monitorFriendlyName: str):
-        responce = UptimeRobot.getMonitors(self) #make that better self.getMonitors(self)
-        if responce[0] == True:
-            monitors = responce[1].get('monitors')
+        response = UptimeRobot.getMonitors(self) #make that better self.getMonitors(self)
+        if response[0] == True:
+            monitors = response[1].get('monitors')
             for monitor in monitors:
                 if monitorFriendlyName == monitor['friendly_name']:
                     return monitor['id']
@@ -38,9 +38,9 @@ class UptimeRobot:
 
 
     def getMonitorById(self, monitorId: int):
-        responce = UptimeRobot.getMonitors(self) #make that better self.getMonitors(self)
-        if responce[0] == True:
-            monitors = responce[1].get('monitors')
+        response = UptimeRobot.getMonitors(self) #make that better self.getMonitors(self)
+        if response[0] == True:
+            monitors = response[1].get('monitors')
             for monitor in monitors:
                 if monitorId == monitor['id']:
                     return monitor
@@ -85,7 +85,7 @@ class UptimeRobot:
         payload += monitorFriendlyName
 
         headers = self.__newHeaders()
-        
+
         return self.__requestApi(url, payload, headers)
 
 
