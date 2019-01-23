@@ -13,16 +13,6 @@ class UptimeRobot:
         self._baseUrl = "https://api.uptimerobot.com/v2/"
 
 
-    def requestApi(self, url, payload, headers):
-        response = requests.request("POST", url, data=payload , headers=headers)
-        jResponce = json.loads(response.content)
-        if jResponce.get('stat'):
-            stat = jResponce.get('stat')
-            if stat == 'ok':
-                return True, jResponce
-        return False, jResponce
-
-
     def getMonitors(self):
         
         url = self._baseUrl
@@ -32,9 +22,9 @@ class UptimeRobot:
         payload += self.apiKey
         payload += '&format=json&logs=1'
 
-        headers = self.newHeaders()
+        headers = self.__newHeaders()
 
-        return self.requestApi(url, payload, headers)
+        return self.__requestApi(url, payload, headers)
     
 
     def getMonitorIdByFriendlyName(self, monitorFriendlyName: str):
@@ -66,9 +56,9 @@ class UptimeRobot:
         payload += '&format=json&id='
         payload += monitorId
 
-        headers = self.newHeaders()
-        
-        return self.requestApi(url, payload, headers)         
+        headers = self.__newHeaders()
+
+        return self.__requestApi(url, payload, headers)         
 
     
     #def deleteMonitorByFriendlyName(self, FriendlyName):
@@ -94,14 +84,24 @@ class UptimeRobot:
         payload += '&friendly_name='
         payload += monitorFriendlyName
 
-        headers = {
-            'content-type': "application/x-www-form-urlencoded",
-            'cache-control': "no-cache"
-            }
-        return self.requestApi(url, payload, headers)
+        headers = self.__newHeaders()
+        
+        return self.__requestApi(url, payload, headers)
 
 
-    def newHeaders(self):
+    # privat methods
+
+    def __requestApi(self, url, payload, headers):
+        response = requests.request("POST", url, data=payload , headers=headers)
+        jResponce = json.loads(response.content)
+        if jResponce.get('stat'):
+            stat = jResponce.get('stat')
+            if stat == 'ok':
+                return True, jResponce
+        return False, jResponce
+
+
+    def __newHeaders(self):
         headers = {
             'content-type': 'application/x-www-form-urlencoded',
             'cache-control': 'no-cache'
