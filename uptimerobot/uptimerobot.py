@@ -6,8 +6,8 @@ import requests
 import sys
 
 
-class UptimeRobot:
 
+class UptimeRobot:
     def __init__(self, apiKey: str):
         self.apiKey = apiKey
         self._baseUrl = "https://api.uptimerobot.com/v2/"
@@ -32,10 +32,8 @@ class UptimeRobot:
         payload += self.apiKey
         payload += '&format=json&logs=1'
 
-        headers = {
-            'content-type': "application/x-www-form-urlencoded",
-            'cache-control': "no-cache"
-            }
+        headers = self.newHeaders()
+
         return self.requestApi(url, payload, headers)
     
 
@@ -68,10 +66,8 @@ class UptimeRobot:
         payload += '&format=json&id='
         payload += monitorId
 
-        headers = {
-            'content-type': "application/x-www-form-urlencoded",
-            'cache-control': "no-cache"
-            }
+        headers = self.newHeaders()
+        
         return self.requestApi(url, payload, headers)         
 
     
@@ -82,7 +78,6 @@ class UptimeRobot:
 
 
     def newMonitor(self, monitorType: int, monitorUrl: str, monitorFriendlyName):
-        
         url = self._baseUrl
         url += 'newMonitor'
         
@@ -104,4 +99,12 @@ class UptimeRobot:
             'cache-control': "no-cache"
             }
         return self.requestApi(url, payload, headers)
+
+
+    def newHeaders(self):
+        headers = {
+            'content-type': 'application/x-www-form-urlencoded',
+            'cache-control': 'no-cache'
+            }
+        return(headers)
 
