@@ -28,7 +28,7 @@ class UptimeRobot:
     
 
     def getMonitorIdByFriendlyName(self, monitorFriendlyName: str):
-        response = UptimeRobot.getMonitors(self) #make that better self.getMonitors(self)
+        response = self.getMonitors()
         if response[0] == True:
             monitors = response[1].get('monitors')
             for monitor in monitors:
@@ -38,7 +38,7 @@ class UptimeRobot:
 
 
     def getMonitorById(self, monitorId: int):
-        response = UptimeRobot.getMonitors(self) #make that better self.getMonitors(self)
+        response = self.getMonitors()
         if response[0] == True:
             monitors = response[1].get('monitors')
             for monitor in monitors:
