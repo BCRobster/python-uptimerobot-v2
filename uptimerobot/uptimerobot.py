@@ -15,13 +15,8 @@ class UptimeRobot:
 
     def getMonitors(self):
         
-        url = self._baseUrl
-        url += 'getMonitors'
-        
-        payload  = 'api_key=' 
-        payload += self.apiKey
-        payload += '&format=json&logs=1'
-
+        url = '%sgetMonitors' % (self._baseUrl)
+        payload  = 'api_key=%s&format=json&logs=1' % (self.apiKey)
         headers = self.__newHeaders()
 
         return self.__requestApi(url, payload, headers)
@@ -48,14 +43,8 @@ class UptimeRobot:
 
 
     def deleteMonitorById(self, monitorId):
-        url = self._baseUrl
-        url += 'deleteMonitor'
-        
-        payload  = 'api_key=' 
-        payload += self.apiKey
-        payload += '&format=json&id='
-        payload += monitorId
-
+        url = '%sdeleteMonitor' % (self._baseUrl)
+        payload  = 'api_key=%s&format=json&id=%s' % (self.apiKey, monitorId)
         headers = self.__newHeaders()
 
         return self.__requestApi(url, payload, headers)         
@@ -68,22 +57,8 @@ class UptimeRobot:
 
 
     def newMonitor(self, monitorType: int, monitorUrl: str, monitorFriendlyName):
-        url = self._baseUrl
-        url += 'newMonitor'
-        
-        payload  = 'api_key=' 
-        payload += self.apiKey
-        payload += '&format=json&type='
-        payload += monitorType # monitorType values defines the UptimeRobot API v2 
-            # 1 - HTTP(s)
-            # 2 - Keyword 
-            # 3 - Ping
-            # 4 - Port
-        payload += '&url=http://'
-        payload += monitorUrl # url: my-url.domain
-        payload += '&friendly_name='
-        payload += monitorFriendlyName
-
+        url = '%snewMonitor' % (self._baseUrl)
+        payload  = 'api_key=%s&format=json&type=%s&url=%s&friendly_name=%s' % (self.apiKey, monitorType, monitorUrl, monitorFriendlyName) 
         headers = self.__newHeaders()
 
         return self.__requestApi(url, payload, headers)
