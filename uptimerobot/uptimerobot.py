@@ -14,11 +14,9 @@ class UptimeRobot:
 
 
     def getMonitors(self):
-        
         url = '%sgetMonitors' % (self._baseUrl)
         payload  = 'api_key=%s&format=json&logs=1' % (self.apiKey)
         headers = self.__newHeaders()
-
         return self.__requestApi(url, payload, headers)
     
 
@@ -46,7 +44,6 @@ class UptimeRobot:
         url = '%sdeleteMonitor' % (self._baseUrl)
         payload  = 'api_key=%s&format=json&id=%s' % (self.apiKey, monitorId)
         headers = self.__newHeaders()
-
         return self.__requestApi(url, payload, headers)         
 
     
@@ -61,10 +58,12 @@ class UptimeRobot:
         headers = self.__newHeaders()
 
         return self.__requestApi(url, payload, headers)
+       
 
-
-    # privat methods
-
+    # ==================
+    # = privat methods =
+    # ==================
+    
     def __requestApi(self, url, payload, headers):
         response = requests.request("POST", url, data=payload , headers=headers)
         jResponce = json.loads(response.content)
