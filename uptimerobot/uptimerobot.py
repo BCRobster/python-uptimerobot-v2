@@ -50,10 +50,9 @@ class UptimeRobot:
         return self.__requestApi(url, payload, headers)         
 
     
-    #def deleteMonitorByFriendlyName(self, FriendlyName):
-    #   get monitorId by friendly name
-    #   delet monitor by id
-
+    def deleteMonitorByFriendlyName(self, friendlyName:str):
+        monitorId = self.getMonitorIdByFriendlyName(friendlyName)
+        self.deleteMonitorById(monitorId)
 
 
     def newMonitor(self, monitorType: int, monitorUrl: str, monitorFriendlyName):
