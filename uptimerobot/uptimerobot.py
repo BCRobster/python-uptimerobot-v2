@@ -21,23 +21,21 @@ class UptimeRobot:
     
 
     def getMonitorIdByFriendlyName(self, monitorFriendlyName: str):
-        response = self.getMonitors()
-        if response[0] == True:
-            monitors = response[1].get('monitors')
-            for monitor in monitors:
+        (success, values) = self.getMonitors()
+        if success:
+            for monitor in values.get('monitors'):
                 if monitorFriendlyName == monitor['friendly_name']:
                     return monitor['id']
-        return monitors, monitorFriendlyName
-
+        return values, monitorFriendlyName
+        
 
     def getMonitorById(self, monitorId: int):
-        response = self.getMonitors()
-        if response[0] == True:
-            monitors = response[1].get('monitors')
-            for monitor in monitors:
+        (success, values) = self.getMonitors()
+        if success:
+            for monitor in values.get('monitors'):
                 if monitorId == monitor['id']:
                     return monitor
-        return monitors, monitorId
+        return values, monitorId
 
 
     def deleteMonitorById(self, monitorId):
