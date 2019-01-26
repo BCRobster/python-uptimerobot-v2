@@ -27,7 +27,7 @@ class UptimeRobot:
             for monitor in monitors:
                 if monitorFriendlyName == monitor['friendly_name']:
                     return monitor['id']
-        return None
+        return monitors, monitorFriendlyName
 
 
     def getMonitorById(self, monitorId: int):
@@ -37,7 +37,7 @@ class UptimeRobot:
             for monitor in monitors:
                 if monitorId == monitor['id']:
                     return monitor
-        return None
+        return monitors, monitorId
 
 
     def deleteMonitorById(self, monitorId):
@@ -63,7 +63,7 @@ class UptimeRobot:
     # ==================
     # = privat methods =
     # ==================
-    
+
     def __requestApi(self, url, payload, headers):
         response = requests.request("POST", url, data=payload , headers=headers)
         jResponce = json.loads(response.content)
