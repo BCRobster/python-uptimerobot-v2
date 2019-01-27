@@ -64,13 +64,11 @@ class UptimeRobot:
 
     def __requestApi(self, url, payload, headers):
         response = requests.request("POST", url, data=payload , headers=headers)
-        jResponce = json.loads(response.content)
-        if jResponce.get('stat'):
-            stat = jResponce.get('stat')
-            if stat == 'ok':
-                return True, jResponce
-        return False, jResponce
-
+        jResponse = json.loads(response.content)
+        if jResponse.get('stat') == 'ok':
+            return True, jResponse
+        return False, jResponse
+    
 
     def __newHeaders(self):
         headers = {
